@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback, Text, View } from "react-native";
 
 class SpotListItem extends Component {
   onRowPress() {
-    Actions.displaySpot({ spot: this.props.spot });
+    Actions.SpotView({ spot: this.props.spot });
   }
 
   render() {

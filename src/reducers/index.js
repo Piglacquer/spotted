@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
 import AuthReducer from "./AuthReducer";
-import SpotListReducer from "./SpotListReducer";
+import SpotsListReducer from "./SpotsListReducer";
+import SpotFormReducer from "./SpotFormReducer";
 
 export default combineReducers({
   auth: AuthReducer,
-  spots: SpotListReducer
+  spots: SpotsListReducer,
+  spotToPost: SpotFormReducer
 });

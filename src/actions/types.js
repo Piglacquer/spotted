@@ -11,3 +11,5 @@ export const REGISTER_WILL_MOUNT = "register_will_mount";
 
 export const SPOTS_FETCH_SUCCESS = "spots_fetch_success";
 export const SPOT_CREATE = "spot_create";
+export const SPOTS_FORMAT = "spots_format";
+export const SPOT_UPDATE = "spot_update";
