@@ -1,8 +1,4 @@
-import {
-  SPOTS_FETCH_SUCCESS,
-  SPOT_CREATE,
-  SPOTS_FORMAT
-} from "../actions/types";
+import { SPOTS_FETCH_SUCCESS, SPOTS_FORMAT } from "../actions/types";
 
 const INITIAL_STATE = {
   usersObjects: {},

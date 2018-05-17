@@ -10,18 +10,19 @@ export const spotsFetch = () => {
       .ref(`/users`)
       .on("value", snapshot => {
         dispatch({ type: SPOTS_FETCH_SUCCESS, payload: snapshot.val() });
+        spotsFormat(dispatch, snapshot.val());
       });
   };
 };
 
-export const spotsFormat = data => {
+const spotsFormat = (dispatch, data) => {
   const formattedData = _.flatten(
-    Object.entries(data.usersObjects).map(current => {
+    Object.entries(data).map(current => {
       return Object.values(current[1].spots);
     })
   );
-  // return dispatch({
-  //   type: SPOTS_FORMAT,
-  //   payload: formattedData
-  // });
+  return dispatch({
+    type: SPOTS_FORMAT,
+    payload: formattedData
+  });
 };

@@ -3,6 +3,7 @@ import { Scene, Router, Actions } from "react-native-router-flux";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import SpotsList from "./components/SpotsList";
+import SpotView from "./components/SpotView";
 import SpotCreate from "./components/SpotCreate";
 
 const RouterComponent = () => {
@@ -24,6 +25,7 @@ const RouterComponent = () => {
             }}
             initial
           />
+          <Scene key="spotView" component={SpotView} title="Da Spot" />
           <Scene key="spotCreate" component={SpotCreate} title="Add a Spot" />
         </Scene>
       </Scene>

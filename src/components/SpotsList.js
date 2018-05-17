@@ -1,48 +1,42 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import { CardSection } from "./common";
 import { FlatList, View, Text } from "react-native";
 import { connect } from "react-redux";
 import { spotsFetch, spotsFormat } from "../actions";
 import SpotListItem from "./SpotListItem";
 
-let dataSource;
-
 class SpotsList extends Component {
   componentWillMount() {
     this.props.spotsFetch();
+    console.log(this.props, "willMount props");
   }
-
-  componentWillReceiveProps(nextProps) {
-    dataSource = this.createDataSource(nextProps);
-  }
-
-  createDataSource = data => {
-    return _.flatten(
-      Object.entries(data.usersObjects).map(current => {
-        return Object.values(current[1].spots);
-      })
-    );
-  };
 
   renderItem({ item }) {
-    return <Text style={styles.textStyle}>{item.name}</Text>;
+    return <SpotListItem spot={item} key={item.name} />;
   }
 
   render() {
     return (
       <View style={styles.containerStyle}>
-        <FlatList data={dataSource} renderItem={this.renderItem} />
+        <FlatList data={this.props.listOfSpots} renderItem={this.renderItem} />
       </View>
     );
   }
 }
 
 const styles = {
-  textStyle: {
+  nameStyle: {
     fontSize: 18,
     alignSelf: "center",
     flex: 1,
-    color: "white"
+    color: "black"
+  },
+  locationStyle: {
+    fontSize: 14,
+    alignSelf: "center",
+    flex: 1,
+    color: "black"
   },
   containerStyle: {
     backgroundColor: "black",
@@ -52,9 +46,9 @@ const styles = {
 };
 
 const mapStateToProps = state => {
-  const { usersObjects } = state.spots;
+  const { usersObjects, listOfSpots } = state.spots;
 
-  return { usersObjects };
+  return { usersObjects, listOfSpots };
 };
 
 export default connect(mapStateToProps, { spotsFetch, spotsFormat })(SpotsList);

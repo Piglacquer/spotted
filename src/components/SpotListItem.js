@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback, Text, View } from "react-native";
 
 class SpotListItem extends Component {
   onRowPress() {
-    Actions.SpotView({ spot: this.props.spot });
+    Actions.spotView({ spot: this.props.spot });
   }
 
   render() {
@@ -13,7 +13,7 @@ class SpotListItem extends Component {
       <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
         <View>
           <CardSection>
-            <Text>Hello</Text>
+            <Text>{this.props.spot.name}</Text>
           </CardSection>
         </View>
       </TouchableWithoutFeedback>
