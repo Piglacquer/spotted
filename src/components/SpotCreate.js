@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { openSelectDialog } from "react-native";
 import { connect } from "react-redux";
 import { spotCreate } from "../actions";
 import { Card, CardSection, Button } from "./common";

@@ -13,7 +13,7 @@ class SpotListItem extends Component {
       <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
         <View>
           <CardSection>
-            <Text>{this.props.spot.name}</Text>
+            <Text style={styles.textStyle}>{this.props.spot.name}</Text>
           </CardSection>
         </View>
       </TouchableWithoutFeedback>
@@ -21,4 +21,9 @@ class SpotListItem extends Component {
   }
 }
 
+const styles = {
+  textStyle: {
+    fontSize: 18
+  }
+};
 export default SpotListItem;

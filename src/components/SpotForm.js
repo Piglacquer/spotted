@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { spotUpdate } from "../actions";
+import { spotUpdate, showCameraRoll } from "../actions";
 import { CardSection, Button, Input, LoadingSpinner } from "./common";
+import AddPhotoButton from "./AddPhotoButton";
 import { View, Text, TextInput } from "react-native";
 
 class SpotForm extends Component {
@@ -41,6 +42,9 @@ class SpotForm extends Component {
             }}
             placeholder="One day youll be able to..."
           />
+        </CardSection>
+        <CardSection>
+          <AddPhotoButton />
         </CardSection>
         <CardSection>
           <Input
@@ -88,4 +92,6 @@ const mapStateToProps = state => {
   return { name, description, photos, location };
 };
 
-export default connect(mapStateToProps, { spotUpdate })(SpotForm);
+export default connect(mapStateToProps, { spotUpdate, showCameraRoll })(
+  SpotForm
+);

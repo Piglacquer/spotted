@@ -5,6 +5,7 @@ import RegisterForm from "./components/RegisterForm";
 import SpotsList from "./components/SpotsList";
 import SpotView from "./components/SpotView";
 import SpotCreate from "./components/SpotCreate";
+import Camera from "./components/Camera";
 
 const RouterComponent = () => {
   return (
@@ -27,6 +28,7 @@ const RouterComponent = () => {
           />
           <Scene key="spotView" component={SpotView} title="Da Spot" />
           <Scene key="spotCreate" component={SpotCreate} title="Add a Spot" />
+          <Scene key="camera" component={Camera} title="Add Photos" />
         </Scene>
       </Scene>
     </Router>

@@ -7,11 +7,15 @@ import { spotsFetch, spotsFormat } from "../actions";
 import SpotListItem from "./SpotListItem";
 
 class SpotsList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.spotsFetch();
     console.log(this.props, "willMount props");
   }
 
+  keyExtractor(item, index) {
+    console.log(item, "item");
+    return index;
+  }
   renderItem({ item }) {
     return <SpotListItem spot={item} key={item.name} />;
   }
@@ -19,7 +23,11 @@ class SpotsList extends Component {
   render() {
     return (
       <View style={styles.containerStyle}>
-        <FlatList data={this.props.listOfSpots} renderItem={this.renderItem} />
+        <FlatList
+          data={this.props.listOfSpots}
+          renderItem={this.renderItem}
+          keyExtractor={this.keyExtractor}
+        />
       </View>
     );
   }
