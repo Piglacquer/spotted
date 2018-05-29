@@ -13,3 +13,5 @@ export const SPOTS_FETCH_SUCCESS = "spots_fetch_success";
 export const SPOT_CREATE = "spot_create";
 export const SPOTS_FORMAT = "spots_format";
 export const SPOT_UPDATE = "spot_update";
+export const SPOT_PHOTO_CHOICES = "spot_photo_choices";
+export const SPOT_PHOTO_SHOT = "spot_photo_shot";

@@ -6,19 +6,13 @@ import {
   Alert,
   NativeModules
 } from "react-native";
+import { spotPhotoChoices } from "../actions";
+import { connect } from "react-redux";
 import { Actions } from "react-native-router-flux";
 
 var ImagePicker = NativeModules.ImageCropPicker;
 
 class AddPhotoButton extends Component {
-  constructor() {
-    super();
-    this.state = {
-      image: null,
-      images: null
-    };
-  }
-
   pickMultiple = () => {
     ImagePicker.openPicker({
       multiple: true,
@@ -26,17 +20,17 @@ class AddPhotoButton extends Component {
       includeExif: true
     })
       .then(images => {
-        this.setState({
-          image: null,
-          images: images.map(i => {
-            console.log("received image", i);
-            return {
-              uri: i.path,
-              width: i.width,
-              height: i.height,
-              mime: i.mime
-            };
-          })
+        let imagesToSend = images.map(i => {
+          console.log("received image", i);
+          return {
+            uri: i.path,
+            width: i.width,
+            height: i.height,
+            mime: i.mime
+          };
+        });
+        this.props.spotPhotoChoices({
+          value: imagesToSend
         });
       })
       .catch(error => console.log(error));
@@ -68,4 +62,10 @@ const styles = {
   }
 };
 
-export default AddPhotoButton;
+const mapStateToProps = state => {
+  const { photos } = state.spotToPost;
+
+  return { photos };
+};
+
+export default connect(mapStateToProps, { spotPhotoChoices })(AddPhotoButton);

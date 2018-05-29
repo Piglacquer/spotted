@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { spotUpdate, showCameraRoll } from "../actions";
 import { CardSection, Button, Input, LoadingSpinner } from "./common";
 import AddPhotoButton from "./AddPhotoButton";
+import TakePhotoButton from "./TakePhotoButton";
 import { View, Text, TextInput } from "react-native";
 
 class SpotForm extends Component {
@@ -45,6 +46,7 @@ class SpotForm extends Component {
         </CardSection>
         <CardSection>
           <AddPhotoButton />
+          <TakePhotoButton />
         </CardSection>
         <CardSection>
           <Input
