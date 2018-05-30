@@ -4,9 +4,22 @@ import { spotUpdate, showCameraRoll } from "../actions";
 import { CardSection, Button, Input, LoadingSpinner } from "./common";
 import AddPhotoButton from "./AddPhotoButton";
 import TakePhotoButton from "./TakePhotoButton";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, Image, ScrollView } from "react-native";
 
 class SpotForm extends Component {
+  renderImage(image) {
+    return (
+      <Image
+        style={{ width: 300, height: 300, resizeMode: "contain" }}
+        source={image}
+      />
+    );
+  }
+
+  renderAsset(image) {
+    return this.renderImage(image);
+  }
+
   render() {
     return (
       <View>
@@ -35,14 +48,16 @@ class SpotForm extends Component {
           </View>
         </CardSection>
         <CardSection>
-          <Input
-            label="Photos"
-            value={this.props.photos}
-            onChangeText={text => {
-              this.props.spotUpdate({ prop: "photos", value: text });
-            }}
-            placeholder="One day youll be able to..."
-          />
+          <ScrollView>
+            {this.props.photos
+              ? console.log(this.props, "console")
+              : console.log("nothin")}
+            {this.props.photos.value
+              ? this.props.photos.value.map(i => (
+                  <View key={i.uri}>{this.renderAsset(i)}</View>
+                ))
+              : null}
+          </ScrollView>
         </CardSection>
         <CardSection>
           <AddPhotoButton />

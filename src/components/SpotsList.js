@@ -9,13 +9,12 @@ import SpotListItem from "./SpotListItem";
 class SpotsList extends Component {
   componentDidMount() {
     this.props.spotsFetch();
-    console.log(this.props, "willMount props");
   }
 
   keyExtractor(item, index) {
-    console.log(item, "item");
     return index;
   }
+
   renderItem({ item }) {
     return <SpotListItem spot={item} key={item.name} />;
   }

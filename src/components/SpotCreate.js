@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { openSelectDialog } from "react-native";
+import { openSelectDialog, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { spotCreate } from "../actions";
 import { Card, CardSection, Button } from "./common";
@@ -15,10 +15,12 @@ class SpotCreate extends Component {
   render() {
     return (
       <Card>
-        <SpotForm {...this.props} />
-        <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>Save</Button>
-        </CardSection>
+        <ScrollView>
+          <SpotForm {...this.props} />
+          <CardSection>
+            <Button onPress={this.onButtonPress.bind(this)}>Save</Button>
+          </CardSection>
+        </ScrollView>
       </Card>
     );
   }

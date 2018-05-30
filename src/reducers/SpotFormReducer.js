@@ -3,7 +3,7 @@ import { SPOT_UPDATE, SPOT_CREATE, SPOT_PHOTO_CHOICES } from "../actions/types";
 const INITIAL_STATE = {
   name: "",
   description: "",
-  photos: null,
+  photos: [],
   location: "",
   error: ""
 };

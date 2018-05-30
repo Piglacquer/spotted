@@ -21,7 +21,6 @@ class AddPhotoButton extends Component {
     })
       .then(images => {
         let imagesToSend = images.map(i => {
-          console.log("received image", i);
           return {
             uri: i.path,
             width: i.width,
@@ -29,9 +28,7 @@ class AddPhotoButton extends Component {
             mime: i.mime
           };
         });
-        this.props.spotPhotoChoices({
-          value: imagesToSend
-        });
+        this.props.spotPhotoChoices(imagesToSend);
       })
       .catch(error => console.log(error));
   };
