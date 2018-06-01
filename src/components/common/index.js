@@ -5,3 +5,4 @@ export * from "./Header";
 export * from "./Input";
 export * from "./LoadingSpinner";
 export * from "./Confirm";
+export * from "./Thumbnail";

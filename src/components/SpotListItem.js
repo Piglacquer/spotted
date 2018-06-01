@@ -26,4 +26,5 @@ const styles = {
     fontSize: 18
   }
 };
+
 export default SpotListItem;

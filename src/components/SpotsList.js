@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import _ from "lodash";
 import { CardSection } from "./common";
 import { FlatList, View, Text } from "react-native";
 import { connect } from "react-redux";
@@ -12,7 +11,7 @@ class SpotsList extends Component {
   }
 
   keyExtractor(item, index) {
-    return index;
+    return index.toString();
   }
 
   renderItem({ item }) {

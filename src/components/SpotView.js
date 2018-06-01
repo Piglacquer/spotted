@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { CardSection, Card, Button } from "./common";
+import { CardSection, Card, Button, Thumbnail } from "./common";
 import { connect } from "react-redux";
+import PhotosList from "./PhotosList";
 import {
   Text,
   View,
@@ -15,11 +16,7 @@ class SpotView extends Component {
   }
 
   renderImage(image) {
-    return (
-      <TouchableWithoutFeedback>
-        <Image style={styles.thumbnailStyle} source={image} />
-      </TouchableWithoutFeedback>
-    );
+    return <Thumbnail photo={image} />;
   }
 
   renderAsset(image) {
@@ -39,6 +36,7 @@ class SpotView extends Component {
                   <View key={i.uri}>{this.renderAsset(i)}</View>
                 ))
               : null}
+            {/* <PhotosList photos={this.props.spot.photos.value} /> */}
           </CardSection>
           <CardSection>
             <Text>{this.props.spot.location}</Text>
